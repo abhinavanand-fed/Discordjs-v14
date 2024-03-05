@@ -1,9 +1,19 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, ActivityType } = require('discord.js');
 const { token } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+
+// client.on('ready', () => {
+// 	client.user.setAvatar('tooth.gif');
+//   });
+
+client.on('ready', () => {  
+	client.user.setActivity('BATTLEGROUNDS MOBILE INDIA', { type: ActivityType.Competing });
+});
+
 
 client.cooldowns = new Collection();
 client.commands = new Collection();
